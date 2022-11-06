@@ -6,47 +6,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FORM</title>
-    <link rel="stylesheet" href="code3.css">
-
-
+    <link rel="stylesheet" href="code.css">
 <body>
-    <!-- Button to open the modal login form -->
-    <button onclick="document.getElementById('id01').style.display='block'">Login</button>
 
-    <!-- The Modal -->
-    <div id="id01" class="modal">
-        <span onclick="document.getElementById('id01').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
-
-        <!-- Modal Content -->
-        <form class="modal-content animate" action="/action_page.php">
-            <div class="imgcontainer">
-                <img src="img_avatar2.png" alt="Avatar" class="avatar">
-            </div>
-
-            <div class="container">
-                <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
-
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-
-                <button type="submit">Login</button>
-                <label>
-                    <input type="checkbox" checked="checked" name="remember"> Remember me
-                </label>
-            </div>
-
-            <div class="container">
-                <button type="button" onclick="return confirm('Cancel is clicked')"
-                    class="cancelbtn">Cancel</button>
-                <button type="button" onclick="return confirm('login is clicked')"
-                    class="ok">ok</button>
-
-                <span class="psw">Forgot <a href="#">password?</a></span>
-            </div>
-        </form>
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+<div id="id01" class="modal" >
+    <form class="modal-content animate" action="code3.html" method="post" id="Form" >
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="img_avatar2.webp" alt="Avatar" class="avatar">
     </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input id="add" type="text" placeholder="Enter Username" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input id="add1" type="password" placeholder="Enter Password"  required>
+        
+      <button type="submit" onclick="Login()" >Login</button>
+      <label>
+        <input id="remember" type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+      
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="findinputs()" style="width:auto;">find inputs</button>
+      <button type="button" onclick="clearInput()" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+ </div>
+
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+       modal.style.display = "none";
+    }
+}
+
+//Logged in Successfully
+function Login() { 
+
+if(document.getElementById('remember').checked )
+    alert("Logged in Successfully with Remeber me");
+else
+    alert("Logged in Successfully");
+
+}
+function findinputs() {
+  box = document.getElementById('add').value;
+  boxvalue = document.getElementById('add1').value;
+  var items=[]
+  items.push(box);
+  items.push(boxvalue);
+  console.log(items);
+}
+function clearInput() {
+    document.getElementById("Form").reset();
+}
+</script>
     </head>
 
 </body>
