@@ -32,7 +32,7 @@
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="findinputs()" style="width:auto;">find inputs</button>
+      <button type="button" onclick="findinputs()" style="width:auto;">ok</button>
       <button type="button" onclick="clearInput()" class="cancelbtn">Cancel</button>
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
@@ -54,12 +54,20 @@ window.onclick = function(event) {
 
 //Logged in Successfully
 function Login() { 
-
-if(document.getElementById('remember').checked )
-    alert("Logged in Successfully with Remeber me");
+if(document.getElementById('remember').checked ){
+  if(window.confirm("Logged in successfully with remember me"))
+  {
+            window.open('l3.html');
+  }
 else
-    alert("Logged in Successfully");
+{
+  if(window.confirm("Logged in successfully"))
+  {
+            window.open('l3.html');
+  }
 
+}
+}
 }
 function findinputs() {
   box = document.getElementById('add').value;
